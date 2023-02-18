@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear incriment</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to top right, #a0083f 0%, #6c4079 100%);
+            font-family: 'Roboto', sans-serif;
+        }
+
+
+
+        .container {
+            max-width: 600px;
+            background: #fff;
+            border-radius: 5px;
+            width: 600px;
+            padding: 20px;
+            box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #a09b9b;
+        }
+
+        .add {
+            text-decoration: none;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #65b707;
+            font-size: 2rem;
+            display: flex;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .flex {
+            display: flex;
+            gap: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .delete {
+            text-decoration: none;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #b90a0a;
+            font-size: 2rem;
+            display: flex;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+
+        }
+
+        input {
+            padding: 8px 10px;
+            background: #bdb7b7;
+            border: none;
+            width: 13%;
+            border-radius: 5px;
+        }
+
+        input:focus {
+            outline: 1px solid #efefef;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            margin-bottom: 15px;
+            margin-left: -30px;
+        }
+
+        ul li {
+            margin-left: auto;
+            font-size: 1rem;
+            font-weight: bold;
+
+        }
+
+        .btn-sub {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            background: rgb(60, 60, 224);
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 5px;
+            margin-left: -14px;
+            border: none;
+            text-decoration: none;
+            text-align: center;
+
+
+        }
+
+        .values {
+            padding: 8px 10px;
+            background: #bdb7b7;
+            border: none;
+            width: 15%;
+            height: 10%;
+            border-radius: 5px;
+            color: black;
+            margin-left: 15px;
+
+        }
+
+        @media (max-width:400px) {
+
+            .container {
+                position: absolute;
+                top: 50px;
+
+                width: 90%;
+                align-items: center;
+                padding-left: 8px;
+            }
+
+            .add {
+                text-decoration: none;
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                margin-left: 0;
+                font-size: 1.3rem;
+                text-align: center;
+                padding-top: -10px;
+
+
+            }
+
+            h2 {
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+           
+            ul {
+                list-style: none;
+                display: flex;
+                margin-bottom: 15px;
+               
+            }
+
+            ul li {
+                margin-left: 60px;
+                font-size: 14px;
+                font-weight: bold;
+
+            }
+
+            input {
+
+                background: #bdb7b7;
+                border: none;
+                width: 55px;
+                height: 25px;
+                border-radius: 5px;
+                
+
+            }
+
+            
+           
+
+
+            
+
+            .Submit {
+                position: absolute;
+
+                top: 10px;
+                width: 80px;
+                height: 25px;
+                border-radius: 5px;
+                background: rgb(60, 60, 224);
+                color: white;
+                padding-top: 3px;
+                font-size: 1rem;
+                margin-top: 5px;
+
+                border: none;
+                text-decoration: none;
+                text-align: center;
+
+
+            }
+            #rows{
+                background: #bdb7b7;
+                border: none;
+                width: 30px;
+                height: 30px;
+                border-radius: 5px;
+                color: black;
+          
+            }
+            #tab{
+                margin-left: 15px;
+                width: 100%;
+                border:none;
+            }
+            td{
+                margin:15px;
+                 width: 50px;
+                 height: 30px;
+                 border: none;
+            }
+            tr{
+                margin-bottom: 15px;
+               border: none;
+            }
+            h3{
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body onload="myload()">
+    <a href="#" class="Submit">Submit</a>
+  
+    <div class="container">
+        <div class="wrap">
+            <a href="#" class="add" >&plus;</a>
+           
+                 <input type="text" placeholder="n" name="generate"   id="rows"/> 
+              
+          
+
+            <h2>LINEAR REGRESSION</h2>
+
+        </div>
+        <div class="operations">
+            <ul>
+                <li>X</li>
+                <li>Y</li>
+
+                <li >X*Y</li>
+                <li >X*X</li>
+                <li></li>
+            </ul>
+           
+
+
+        </div>
+        <div id="int-grp">
+            <table border="1" id="tab">
+
+            </table>
+            <div id="final"></div>
+        </div>
+        
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        const addbtn = document.querySelector(".add");
+       
+        const finalSub = document.querySelector(".Submit");
+        finalSub.addEventListener("click",total);
+        function addInput(){
+            var table = document.getElementById('tab');
+            var row = document.getElementById("rows").value;
+            var col= 4;
+            console.log( row +" " +col);
+            for(var i=0;i<row;i++){
+                var tr = document.createElement("tr");
+                for(var j=0;j<col;j++){
+                    var td = document.createElement("td");
+                    var input = document.createElement("input")
+                    input.type="number";
+                    input.name= "col"+j;
+                    input.className="addd";
+                    
+                   
+                    td.appendChild(input);
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+
+            }
+            for(var i=0;i<1;i++){
+                var tr = document.createElement("tr");
+                for(var j=0;j<col;j++){
+                    var td = document.createElement("td");
+                    var input = document.createElement("input")
+                    input.type="number";
+                    input.id= "col"+j+"_t";
+                    input.placeholder="Total";
+                    input.className="addd";
+                   
+                    td.appendChild(input);
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+
+            }
+            
+
+        }
+        
+        
+        function total(){
+            var ls_sum0 =0;
+            var ls_sum1 =0;
+            var ls_sum2 =0;
+            var ls_sum3 =0;
+
+            var X = document.getElementsByName("col0");
+            var Y = document.getElementsByName("col1");
+            var XY = document.getElementsByName("col2");
+            var XX = document.getElementsByName("col3");
+
+              
+              for( var i =0;i<X.length;i++){
+               XY[i].value=X[i].value*Y[i].value;
+            }
+            for( var i =0;i<X.length;i++){
+               XX[i].value=X[i].value*X[i].value;
+            }
+
+            var base0 = document.getElementsByName("col0");
+            for( var i =0;i<base0.length;i++){
+                var ls_base=base0[i].value;
+                ls_sum0 = +ls_sum0+ +ls_base;
+            }
+
+            document.getElementById("col0_t").value=ls_sum0;
+            var base1 = document.getElementsByName("col1");
+            
+            for( var i =0;i<base1.length;i++){
+                var ls_base=base1[i].value;
+                ls_sum1 = +ls_sum1+ +ls_base;
+            }
+
+            document.getElementById("col1_t").value=ls_sum1;
+            var base2 = document.getElementsByName("col2");
+            
+            for( var i =0;i<base2.length;i++){
+                var ls_base=base2[i].value;
+                ls_sum2 = +ls_sum2+ +ls_base;
+            }
+
+            document.getElementById("col2_t").value=ls_sum2;
+            var base3 = document.getElementsByName("col3");
+            
+            for( var i =0;i<base3.length;i++){
+                var ls_base=base3[i].value;
+                ls_sum3 = +ls_sum3+ +ls_base;
+            }
+
+            document.getElementById("col3_t").value=ls_sum3;
+
+            var beta1 = ((ls_sum3*ls_sum1)-(ls_sum0*ls_sum2))/((X.length*ls_sum3)-(ls_sum0*ls_sum0));
+            const beta_01= document.createElement("h3");
+            beta_01.innerHTML= " Beta1="+ beta1;
+            var table = document.getElementById('final');
+            table.appendChild(beta_01);
+            var beta2 = ((X.length*ls_sum2)-(ls_sum0*ls_sum1))/((X.length*ls_sum3)-(ls_sum0*ls_sum0));
+            const beta_02= document.createElement("h3");
+            beta_02.innerHTML= " Beta2="+ beta2;
+            var table = document.getElementById('final');
+            table.appendChild(beta_02);
+             
+        }
+
+
+        
+            
+          
+
+
+       
+        
+        addbtn.addEventListener("click", addInput);
+
+    </script>
+
+</body>
+
+</html>
